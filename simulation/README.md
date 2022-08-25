@@ -1,6 +1,6 @@
 # Simulate genomic short-reads for `ploidyNGS`
 
-In order to test `ploidyNGS` with genomes of different ploidy levels we took Saccharomyces cerevisiae S288C chromosome I as basis. For this we developed `simulatePloidyData.py` that takes a chromose sequence in fasta format, an heterozigosity level and the ploidy level and produces a fasta file tht complies with the heterozugosity and ploidy level requested.
+In order to test `ploidyNGS` with genomes of different ploidy levels we took Saccharomyces cerevisiae S288C chromosome I as basis. For this we developed `simulatePloidyData.py` that takes a chromose sequence in fasta format, heterozygosity level and the ploidy level and produces a fasta file that complies with the heterozygosity and ploidy level requested.
 
 ## Generation of the simulated diploid organism sequences.
 
