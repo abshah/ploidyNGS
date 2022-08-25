@@ -28,7 +28,7 @@ from collections import defaultdict
 from Bio.SeqRecord import SeqRecord
 from Bio import SeqIO
 from Bio.Seq import Seq
-from Bio.Alphabet import IUPAC
+#from Bio.Alphabet import IUPAC
 import os.path
 
 ###################################
@@ -88,7 +88,7 @@ def makehash():
 # Create tables that will store dosage and the second allele in each position
 heterozPosChromsDosageBases = makehash()
 
-genomeOBJ = open(args.genomeFile, "rU")
+genomeOBJ = open(args.genomeFile, "r")
 
 # Get random dosage (dosage table index) and second allele base (a random base, besides the original one)
 for chr in SeqIO.parse(genomeOBJ, "fasta"):
@@ -112,7 +112,7 @@ genomeOBJ.close()
 for i in range(1, ploidy+1): #Python's range function will generate a sequence of number from start (1) up to, but not including stop (ploidy+1)
 	filename = "simulatedChroms_Ploidy" + str(ploidy) + "_Heter" + str(heterozygosity) + "_" + str(i) + ".fasta"
 	output_handle = open(filename, "w")
-	genomeOBJ = open(args.genomeFile, "rU")
+	genomeOBJ = open(args.genomeFile, "r")
 	for chr in SeqIO.parse(genomeOBJ, "fasta"):
 		print(chr.id)
 		newChrID = chr.id + "_p" + str(ploidy) + "_h" + str(heterozygosity) + "_copy" + str(i)
