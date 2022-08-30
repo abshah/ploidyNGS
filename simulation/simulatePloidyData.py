@@ -98,7 +98,7 @@ for chr in SeqIO.parse(genomeOBJ, "fasta"):
 			randomDosageTable = random.randint(0,lenDosageTable-1)
 			DosageThisPosition = DosageTable[randomDosageTable]
 			base = base.upper()
-			GenomeAlph = ["A","T","C","G"]
+			GenomeAlph = ["A","T","C","G","N"]
 			GenomeAlph.remove(base)
 			baseAltAllele = GenomeAlph[random.randint(0,2)]
 			ListFirstBase = DosageThisPosition[0] * base
@@ -118,7 +118,7 @@ for i in range(1, ploidy+1): #Python's range function will generate a sequence o
 		newChrID = chr.id + "_p" + str(ploidy) + "_h" + str(heterozygosity) + "_copy" + str(i)
 		print(newChrID)
 		descPloidyCopyNum = "Chr copy number " + str(i)
-		newChr = SeqRecord(Seq('', IUPAC.unambiguous_dna), id=newChrID, description=descPloidyCopyNum)
+		newChr = SeqRecord(Seq(''), id=newChrID, description=descPloidyCopyNum)
 		for index, base in enumerate(chr):
 			if index in heterozPosChromsDosageBases[chr.id]:
 				newChr = newChr + heterozPosChromsDosageBases[chr.id][index][i-1]
